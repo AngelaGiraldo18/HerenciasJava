@@ -59,8 +59,17 @@ private int numeroHistoriaClinica;
   public int getNumeroHistoriaClinica() {
 		return numeroHistoriaClinica;
 	}
+  
 	public void setNumeroHistoriaClinica(int numeroHistoriaClinica) {
-		this.numeroHistoriaClinica = numeroHistoriaClinica;
+		try {
+			if (numeroHistoriaClinica<0) {
+				throw new IllegalArgumentException("El número de historia clínica debe ser mayor o igual a cero.");
+			}
+			this.numeroHistoriaClinica = numeroHistoriaClinica;
+			}catch (IllegalArgumentException e) {
+			 System.out.println("Error: " + e.getMessage());
+		}
+		
 	}
 	public String getSexo() {
 		return sexo;

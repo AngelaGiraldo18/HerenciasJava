@@ -35,4 +35,5 @@ private double honorariosPorHora;
 	public void setFechaTerminoContrato(String fechaTerminoContrato) {
 		this.fechaTerminoContrato = fechaTerminoContrato;
 	}
+
 }

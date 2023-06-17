@@ -8,7 +8,8 @@ import clases.empleado.EmpleadoPlantilla;
 import clases.empleado.Medico;
 
 public class Procesos {
-  
+	 int opcion=0;
+	
 	ModeloDatos miModeloDatos;
 	
 	public Procesos() {
@@ -22,10 +23,10 @@ public class Procesos {
     menu+="2.Registrar Empleado\n";
     menu+="3.Registrar Cita Medica\n";
     menu+="4.Imprimir Informacion\n";
-    menu+="5.Salir\n";
+    menu+="5. Consultar Por Documento\n";
+    menu+="6.Salir\n";
     menu+="INGRESE UNA OPCION\n";
-    
-    int opcion=0;
+   
    
 	   do {
 			opcion=Integer.parseInt(JOptionPane.showInputDialog(menu));
@@ -43,14 +44,55 @@ public class Procesos {
 				imprimirInformacion();
 				break;
 			case 5:
+				consultarPorDocumento();
+				break;
+			case 6:
 				 JOptionPane.showInternalMessageDialog(null, "El sistema ha terminado!");
 				break;
 			default:JOptionPane.showMessageDialog(null,"No existe el codigo,verifique nuevamente ");
 				break;
 			}
-	} while (opcion!=5);
+	} while (opcion!=6);
 
 	}
+	private void consultarPorDocumento() {
+        String menuConsulta="MENU CONSULTA\n";
+        menuConsulta+="1. consultar Pacientes\n";
+        menuConsulta+="2. consultar Empleados Eventuales\n";
+        menuConsulta+="3. consultarEmpleados Por Planilla\n";
+        menuConsulta+="4. consultar Medicos\n";
+        menuConsulta+="5. Volver\n";
+        menuConsulta+="INGRESE UNA OPCIÓN\n";
+        
+        
+        System.out.println("**Menu consultar por cedula****");
+        
+        	int opcion=Integer.parseInt(JOptionPane.showInputDialog(menuConsulta));
+            
+            switch (opcion) {
+    		case 1:
+    			miModeloDatos.imprimirPacientesPorCedula();
+    			break;
+    		case 2:
+    			miModeloDatos.imprimirEmpleadosEventualesPorCedula();
+    			break;
+    		case 3:
+    			miModeloDatos.imprimirEmpleadosPorPlantillaPorCedula();
+    			break;
+    			
+    		case 4:
+    			miModeloDatos.imprimirMedicosPorCedula();
+    			break;
+    			
+    		case 5:
+    			presentarMenuOpciones();
+    			break;
+    		default:System.out.println("NO EXISTE ESTA OPCIÓN");
+    			break;
+    		}
+        
+	}
+
 	private void registrarpaciente() {
 	   Paciente miPaciente = new Paciente();
 	   miPaciente.registrarDatos();
@@ -62,6 +104,7 @@ public class Procesos {
    String menuTipoEmpleado = "Registro de empleados\n";
    menuTipoEmpleado+="1.Empleado Eventual\n";
    menuTipoEmpleado+="2. Empleado por Planilla\n";
+   menuTipoEmpleado+="3. Volver\n";
    menuTipoEmpleado+="SELECIONE EL TIPO DE EMPLEADO A REGISTRAR\n";
     
    int tipoEmpleado=Integer.parseInt(JOptionPane.showInputDialog(menuTipoEmpleado));
@@ -83,11 +126,11 @@ case 2:
 		 EmpleadoPlantilla miEmpleadoPlantilla = new EmpleadoPlantilla();
 		 miEmpleadoPlantilla.registrarDatos();
 		   miModeloDatos.registrarPersona(miEmpleadoPlantilla);
-	}
-	   
-	   
+	}	   
 	break;
-
+case 3:
+	presentarMenuOpciones();
+   break;
 default:System.out.println("El tipo de empleado no es valido, intentelo nuevamente");
 	break;
 }
@@ -124,9 +167,10 @@ default:System.out.println("El tipo de empleado no es valido, intentelo nuevamen
         menuImprimir+="1. Listar Pacientes\n";
         menuImprimir+="2. Listar Empleados Eventuales\n";
         menuImprimir+="3. Listar Empleados Por Planilla\n";
-        menuImprimir+="4. Listar Medicos\n";
-        menuImprimir+="5. Listar Citas Programadas\n";
+        menuImprimir+="4. Listar Citas Programadas\n";
+        menuImprimir+="5. Volver\n";
         menuImprimir+="INGRESE UNA OPCIÓN\n";
+        
         
         System.out.println("**********Menu****************");
         
@@ -144,13 +188,11 @@ default:System.out.println("El tipo de empleado no es valido, intentelo nuevamen
 			break;
 			
 		case 4:
-			miModeloDatos.imprimirMedicos();
-			break;
-			
-		case 5:
 			miModeloDatos.imprimirCitasMedicasProgramadas();
 			break;
-
+		case 5:
+			presentarMenuOpciones();
+			break;
 		default:System.out.println("NO EXISTE ESTA OPCIÓN");
 			break;
 		}

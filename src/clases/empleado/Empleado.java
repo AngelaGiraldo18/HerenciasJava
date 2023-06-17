@@ -16,7 +16,7 @@ public class Empleado extends Persona{
 	public void registrarDatos() {
 		super.registrarDatos();
 		
-		codigoDeEmpleado=JOptionPane.showInputDialog("");
+		codigoDeEmpleado=JOptionPane.showInputDialog("Ingrese el codigo ");
 		numeroDeHorasExtras=Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numro de horas Extras: "));
 		fechaDeIngreso=JOptionPane.showInputDialog("Ingrese la fecha de ingreso dd/mm/aaaa");
 		area=JOptionPane.showInputDialog("Ingrese el area");

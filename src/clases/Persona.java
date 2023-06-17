@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class Persona {
  
-private String numeroDeDNI;
+   private String numeroDeDNI;
    private String nombre;
    private String apellido;
    private String fechaDeNacimiento;
@@ -14,10 +14,10 @@ private String numeroDeDNI;
    public void imprimirDatosPersona(String datos) {
 	 
 	   datos += "Nombre: "+ nombre+ "\n";
-	   datos += "Apellido"+apellido+"\n";
-	   datos += "Fecha de nacimiento"+fechaDeNacimiento+"\n";
-	   datos += "Direccion"+direccion+"\n";
-	   datos += "Ciudad de procedencia"+ciudadDeProcedecia+"\n";
+	   datos += "Apellido: "+apellido+"\n";
+	   datos += "Fecha de nacimiento: "+fechaDeNacimiento+"\n";
+	   datos += "Direccion: "+direccion+"\n";
+	   datos += "Ciudad de procedencia: "+ciudadDeProcedecia+"\n";
 	   
 	   System.out.println(datos);
 }
